@@ -19,7 +19,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
         CREATE TABLE IF NOT EXISTS tags (
           user_id INTEGER,
           movie_id INTEGER,
-          tag VARCHAR(100),
+          tag VARCHAR(300),
           timestamp INTEGER,
           constraint fk_movie_id foreign key (movie_id) REFERENCES movies (movie_id)
         );
@@ -41,8 +41,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
   COMMIT;
 EOSQL
 
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy movies FROM '/docker-entrypoint-initdb.d/ml-latest-small/movies.csv' DELIMITER ',' CSV HEADER;"
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy links FROM '/docker-entrypoint-initdb.d/ml-latest-small/links.csv' DELIMITER ',' CSV HEADER;"
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy ratings FROM '/docker-entrypoint-initdb.d/ml-latest-small/ratings.csv' DELIMITER ',' CSV HEADER;"
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy tags FROM '/docker-entrypoint-initdb.d/ml-latest-small/tags.csv' DELIMITER ',' CSV HEADER;"
-
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy movies FROM '/docker-entrypoint-initdb.d/ml-latest/movies.csv' DELIMITER ',' CSV HEADER;"
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy links FROM '/docker-entrypoint-initdb.d/ml-latest/links.csv' DELIMITER ',' CSV HEADER;"
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy tags FROM '/docker-entrypoint-initdb.d/ml-latest/tags.csv' DELIMITER ',' CSV HEADER;"
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy ratings FROM '/docker-entrypoint-initdb.d/ml-latest/ratings.csv' DELIMITER ',' CSV HEADER;"

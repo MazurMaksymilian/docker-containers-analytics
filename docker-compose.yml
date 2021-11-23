@@ -23,6 +23,12 @@ services:
       - "host.docker.internal:172.17.0.1"
   datascience-notebook:
       image: jupyter/datascience-notebook
+      environment:
+        - POSTGRES_USER=${POSTGRES_USER}
+        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        - APP_DB_USER=${APP_DB_USER}
+        - APP_DB_PASS=${APP_DB_PASS}
+        - APP_DB_NAME=${APP_DB_NAME}
       volumes:
         - ./notebook:/home/jovyan/work
       ports:

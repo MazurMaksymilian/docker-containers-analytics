@@ -14,9 +14,11 @@ The tables also don't use any additional indexes apart from the ones created wit
 
 ## Usage
 
-1. run ./download_data.sh
+1. set the following environment variables in .env file: POSTGRES_USER, POSTGRES_PASSWORD, APP_DB_USER, APP_DB_PASS, APP_DB_NAME
 2. docker-compose build
-3. docker-compose up
-4. login into jupyter notebook
-5. from jupyter notebook terminal execute python -m pip install psycopg2-binary
-6. open Queries notebook and run the code
+3. docker-compose up 
+4. run ./01-download_data.sh
+5. run ./02-load_data_to_database.sh
+6. log into jupyter notebook
+7. from jupyter notebook terminal execute "python -m pip install psycopg2-binary"
+8. open Queries notebook and run the code

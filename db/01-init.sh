@@ -41,7 +41,7 @@ psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-E
   COMMIT;
 EOSQL
 
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy movies FROM '/docker-entrypoint-initdb.d/ml-latest/movies.csv' DELIMITER ',' CSV HEADER;"
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy links FROM '/docker-entrypoint-initdb.d/ml-latest/links.csv' DELIMITER ',' CSV HEADER;"
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy tags FROM '/docker-entrypoint-initdb.d/ml-latest/tags.csv' DELIMITER ',' CSV HEADER;"
-psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy ratings FROM '/docker-entrypoint-initdb.d/ml-latest/ratings.csv' DELIMITER ',' CSV HEADER;"
+#psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy movies FROM '/docker-entrypoint-initdb.d/ml-latest/movies.csv' DELIMITER ',' CSV HEADER;"
+#psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy links FROM '/docker-entrypoint-initdb.d/ml-latest/links.csv' DELIMITER ',' CSV HEADER;"
+#psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy tags FROM '/docker-entrypoint-initdb.d/ml-latest/tags.csv' DELIMITER ',' CSV HEADER;"
+#psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$APP_DB_NAME" -c "\copy ratings FROM '/docker-entrypoint-initdb.d/ml-latest/ratings.csv' DELIMITER ',' CSV HEADER;"

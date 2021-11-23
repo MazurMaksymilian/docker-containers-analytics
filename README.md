@@ -1,0 +1,1 @@
+Communiate two dockers - jupyter notebook to postgres database and run queries
